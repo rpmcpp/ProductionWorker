@@ -6,6 +6,8 @@
 
 package ProductionWorker;
 
+import java.text.DecimalFormat;
+
 /**
  * @author RPM
  */
@@ -83,6 +85,9 @@ public class ProductionWorker extends Employee {
    public String toString()
    {
       String str; // To hold a string
+      
+      DecimalFormat df = new DecimalFormat();
+      df.setMinimumFractionDigits(2);
 
       // Create a string representing this production
       // worker's Employee info plus shift and pay rate
@@ -94,7 +99,7 @@ public class ProductionWorker extends Employee {
       if (workerShift == 2)
             str = str + "Night";  
               
-      str = str + "\nEmployee Pay Rate: $" + hourlyPayRate;  
+      str = str + "\nEmployee Pay Rate: $" + (df.format(hourlyPayRate));  
 
       // Return the string.
       return str;
